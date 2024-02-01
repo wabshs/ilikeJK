@@ -8,6 +8,9 @@ dependencies:
   ant-design-vue:
     specifier: 4.x
     version: 4.1.2(vue@3.4.15)
+  easy-typer-js:
+    specifier: ^2.1.0
+    version: 2.1.0
   element-plus:
     specifier: ^2.5.3
     version: 2.5.3(vue@3.4.15)
@@ -692,6 +695,10 @@ packages:
 
   /dom-scroll-into-view@2.0.1:
     resolution: {integrity: sha512-bvVTQe1lfaUr1oFzZX80ce9KLDlZ3iU+XGNE/bz9HnGdklTieqsbmsLHe+rT2XWqopvL0PckkYqN7ksmm5pe3w==}
+    dev: false
+
+  /easy-typer-js@2.1.0:
+    resolution: {integrity: sha512-P1G1oPO26lPfuPdaS3KyywFc36HRVKBJvzxJiOMbn5+Z3n9JLzhTT4cJK121mnjujyOWQiRla4ikHZQHPcoa/g==}
     dev: false
 
   /element-plus@2.5.3(vue@3.4.15):

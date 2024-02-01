@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "ant-design-vue": "4.x",
+    "easy-typer-js": "^2.1.0",
     "element-plus": "^2.5.3",
     "vue": "^3.3.11",
     "vue-router": "4.*"

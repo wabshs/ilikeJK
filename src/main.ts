@@ -6,5 +6,6 @@ import 'ant-design-vue/dist/reset.css';
 import router from './router/router.ts'
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css'
+import "./assets/font/font.css"
 
 createApp(App).use(Antd).use(router).use(ElementPlus).mount('#app')

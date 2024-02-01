@@ -7,8 +7,8 @@
         </el-header>
       </el-affix>
 
-      <el-main style="min-height: 1500px">
-
+      <el-main style="min-height: 1500px;padding: 0">
+        <Welcome/>
       </el-main>
 
       <!--      页脚-->
@@ -23,6 +23,7 @@
 
 
 import Header from "../components/Header.vue";
+import Welcome from "./pub/Welcome.vue";
 </script>
 
 <style scoped>
@@ -30,7 +31,9 @@ import Header from "../components/Header.vue";
   text-align: center;
 
 }
-
+.header{
+  padding: 0;
+}
 
 
 </style>
