@@ -5,7 +5,7 @@ import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        component:() => import("../components/index.vue")
+        component:() => import("../views/Index.vue")
     }
 ]
 
