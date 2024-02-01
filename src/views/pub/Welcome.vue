@@ -5,9 +5,9 @@
       <!--      里面的文字-->
       <div class="words">
         <span style="font-size: 50px;font-weight: bold">欢迎来到
-          <span
-              style="background: linear-gradient(to right, #ff8a00, #e52e71); -webkit-background-clip: text; color: transparent;">eHBUT</span>
-          官方网站</span>
+          <span class="eHBUT">eHBUT</span>
+          官方网站
+        </span>
         <br/>
         <br/>
         <span style="font-weight: bold;font-size: 20px">创办一天，专注给予HBUTers最便捷的体验</span>
@@ -15,13 +15,13 @@
         <br/>
         <div style="font-size: 40px;min-height: 50px">
           <span style="color: #fff;font-family: 'JetBrains Mono',serif">
-            {{ obj.output.slice(0, 6) }}
+            {{ obj.output.slice(0, 7) }}
           </span>
           <span style="font-family: 'JetBrains Mono',serif">
-            {{ obj.output.slice(6, 10) }}
+            {{ obj.output.slice(7, 11) }}
           </span>
-          <span style="color: #fff;font-family: 'JetBrains Mono',serif">
-            {{ obj.output.slice(10, 18) }}
+          <span style="color: #ee00ff;font-family: 'JetBrains Mono',serif">
+            {{ obj.output.slice(11, 18) }}
           </span>
           <span style="color: rgba(255,246,0,0.99);font-family: 'JetBrains Mono',serif">
             {{ obj.output.slice(18, 19) }}
@@ -89,5 +89,22 @@ onMounted(() => {
   50% {
     transform: translateY(-10px);
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.eHBUT {
+  background: linear-gradient(to right, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  -webkit-animation: fadeIn 2s ease-in-out forwards;
 }
 </style>
