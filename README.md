@@ -1,18 +1,86 @@
-# Vue 3 + TypeScript + Vite
+# (^_^;)
+現在已經不難過(´･_･`)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+但想你別離開我(´･ω･`)
 
-## Recommended IDE Setup
+sorry都是我的錯( ; _ ; )/~~~
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+沒了你還怎麼活(°_°)
 
-## Type Support For `.vue` Imports in TS
+天空又下起了雨~(・・？）
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+回憶曾經的點滴o(^▽^)o
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+我不想要再逃避(^_^;)
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+知道全都回不去( T_T)
+
+給你打過電話 可還是無人接通(-｡-;
+
+給你發過微信 可還是沒被接收(￣∇￣)
+
+曾經的我是很幼稚 也很固執 以為你是無可複製 就像擁有繁星的夜空（*＾3＾）
+
+曾經把你當作是我的全世界(>^ω^<)
+
+為了奔向你也曾不顧一切(*☻-☻*)
+
+你說你是羅密歐我就是你的朱麗葉（＾ν＾）
+
+會一直愛我直到這地球毀滅⁄(⁄ ⁄ ⁄ω⁄ ⁄ ⁄)⁄
+
+3d boy讓我心碎 (>﹏<)
+
+可你說不忍我流淚(T ^ T)
+
+提起你就讓我崩潰(((o(*ﾟ▽ﾟ*)o)))
+
+大腦總被酒精麻醉(#ﾟДﾟ)
+
+回憶曾經的情話(o^^o)
+
+都是你騙我的鬼話( ･᷄ὢ･᷅ )
+
+一次次和你吵架(c_c)
+
+也害怕過被你拋下╮(￣▽￣"")╭
+
+oh bae請你離我遠一些(e_e)
+
+老娘不是你想要的體貼(^з^)-☆
+
+往後再也不會受你的制約f^_^;
+
+拜託記住你是兒子我是爹(￣^￣)ゞ
+
+丟掉你送我的禮物 ^_−☆
+
+清空我對你的幻想(｡ ˇ‸ˇ ｡)
+
+刪除關於你的照片 ！(◎_◎;)
+
+埋葬我們倆的過往(⁎⁍̴̛ᴗ⁍̴̛⁎)
+
+我拋開你去尋找我的2d boyfriend (^ω^)
+
+帶他飛到心目中的夢幻England (*ˉ︶ˉ*)
+
+在教堂中他宣誓成為我的husband o(^_-)O
+
+But you're my former lover who has been dead.(*_*)
+
+咱倆真沒未來你咋不早說(−_−＃)
+
+還天真把你當作感情寄託o(≧v≦)o
+
+後悔為啥沒早點把你看破(¬_¬)
+
+其實離開你也算是我解脫\(^o^)/~
+
+現在彼此裝作很冷漠( ; _ ; )/~~~
+
+可能曾經也是真的愛過(>^ω^<)
+
+不想再因為你而墮落(｡ ˇ‸ˇ ｡)
+
+離開你的我勝券在握\^O^/
