@@ -3,19 +3,29 @@
     <!--    开屏大图-->
     <div class="welcome_pic">
       <!--      里面的文字-->
-      <div>
+      <div class="words">
         <h1>欢迎来到____官方网站</h1>
-        <h1>
+        <br/>
+        <div style="font-size: 40px;min-height: 50px">
           <span style="color: #fff;font-family: 'JetBrains Mono',serif">
             {{obj.output.slice(0,6)}}
           </span>
-          <span style="font-family: 'JetBrains Mono',serif">
+            <span style="font-family: 'JetBrains Mono',serif">
             {{obj.output.slice(6,10)}}
           </span>
-          <span style="color: #fff;font-family: 'JetBrains Mono',serif">
+            <span style="color: #fff;font-family: 'JetBrains Mono',serif">
             {{obj.output.slice(10,18)}}
           </span>
-        </h1>
+            <span style="color: rgba(255,246,0,0.99);font-family: 'JetBrains Mono',serif">
+            {{obj.output.slice(18,19)}}
+          </span>
+            <span style="color: rgba(0,255,33,0.99);font-family: 'JetBrains Mono',serif">
+            {{obj.output.slice(19,32)}}
+          </span>
+            <span style="color: rgba(255,246,0,0.99);font-family: 'JetBrains Mono',serif">
+            {{obj.output.slice(32,33)}}
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -51,7 +61,13 @@ onMounted(() => {
   height: 700px;
   background-image: url("../../assets/background-light-f74c7dae.jpg");
   background-size: cover;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.words{
+  text-align: center;
 }
 </style>

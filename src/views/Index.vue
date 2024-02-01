@@ -16,6 +16,7 @@
         Smart School™ Designed By Du CopyRight 2024
       </el-footer>
     </el-container>
+    <el-backtop :right="100" :bottom="100" />
   </div>
 </template>
 
