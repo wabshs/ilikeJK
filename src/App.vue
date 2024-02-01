@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <router-view/>
   </div>
 </template>
@@ -8,7 +8,10 @@
 
 </script>
 
-<style scoped>
-
-
+<style scoped >
+#app {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
 </style>
