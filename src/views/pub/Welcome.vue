@@ -4,28 +4,38 @@
     <div class="welcome_pic">
       <!--      里面的文字-->
       <div class="words">
-        <h1>欢迎来到____官方网站</h1>
+        <span style="font-size: 50px;font-weight: bold">欢迎来到
+          <span
+              style="background: linear-gradient(to right, #ff8a00, #e52e71); -webkit-background-clip: text; color: transparent;">eHBUT</span>
+          官方网站</span>
+        <br/>
+        <br/>
+        <span style="font-weight: bold;font-size: 20px">创办一天，专注给予HBUTers最便捷的体验</span>
+        <br/>
         <br/>
         <div style="font-size: 40px;min-height: 50px">
           <span style="color: #fff;font-family: 'JetBrains Mono',serif">
-            {{obj.output.slice(0,6)}}
+            {{ obj.output.slice(0, 6) }}
           </span>
-            <span style="font-family: 'JetBrains Mono',serif">
-            {{obj.output.slice(6,10)}}
+          <span style="font-family: 'JetBrains Mono',serif">
+            {{ obj.output.slice(6, 10) }}
           </span>
-            <span style="color: #fff;font-family: 'JetBrains Mono',serif">
-            {{obj.output.slice(10,18)}}
+          <span style="color: #fff;font-family: 'JetBrains Mono',serif">
+            {{ obj.output.slice(10, 18) }}
           </span>
-            <span style="color: rgba(255,246,0,0.99);font-family: 'JetBrains Mono',serif">
-            {{obj.output.slice(18,19)}}
+          <span style="color: rgba(255,246,0,0.99);font-family: 'JetBrains Mono',serif">
+            {{ obj.output.slice(18, 19) }}
           </span>
-            <span style="color: rgba(0,255,33,0.99);font-family: 'JetBrains Mono',serif">
-            {{obj.output.slice(19,32)}}
+          <span style="color: rgba(0,255,33,0.99);font-family: 'JetBrains Mono',serif">
+            {{ obj.output.slice(19, 32) }}
           </span>
-            <span style="color: rgba(255,246,0,0.99);font-family: 'JetBrains Mono',serif">
-            {{obj.output.slice(32,33)}}
+          <span style="color: rgba(255,246,0,0.99);font-family: 'JetBrains Mono',serif">
+            {{ obj.output.slice(32, 33) }}
           </span>
         </div>
+        <br/>
+        <br/>
+        <el-button type="primary" size="large">快速开始~ 🚀</el-button>
       </div>
     </div>
   </div>
@@ -52,7 +62,7 @@ const obj = reactive({
 
 // 实例化
 onMounted(() => {
-  const typed = new EasyTyper(obj,'System.out.println("Hello HBUT!")')
+  const typed = new EasyTyper(obj, 'System.out.println("Hello HBUT!")')
 })
 </script>
 
@@ -64,10 +74,20 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  position: relative;
+  -webkit-animation: moveUpDown 6s ease-in-out infinite;
 }
 
-.words{
+.words {
   text-align: center;
+}
+
+@-webkit-keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 </style>
