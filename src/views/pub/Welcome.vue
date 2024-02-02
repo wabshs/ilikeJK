@@ -1,6 +1,7 @@
 <template>
   <div>
-    <!--    开屏大图-->
+
+    <!--    开屏大图 上方区域-->
     <div class="welcome_pic">
       <!--      里面的文字-->
       <div class="words">
@@ -38,38 +39,190 @@
         <el-button type="primary" size="large" @click="handleClick">快速开始~ 🚀</el-button>
       </div>
     </div>
-    <!--    左下文字-->
-    <div class="left_down_card" id="left_down">
-      <el-card :body-style="{ padding: '0px' }" shadow="hover">
-        <img
-            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            class="image"
-            alt="头像"/>
-        <div style="padding: 14px">
-          <!--          顶部-->
-          <div class="top">
-            <h3>用户名</h3>
-            <div>用一句话介绍自己吧~</div>
-          </div>
 
-          <!--          底部-->
-          <div class="bottom" style="margin-top: 8px">
-            <el-collapse>
-              <el-collapse-item title="喜欢的事情💕" name="1">
-                <div>
-                  篮球、足球、乒乓球
+    <!--    下方区域-->
+    <div class="down">
+      <!--    布局-->
+      <el-row>
+        <!--    左下卡片-->
+        <el-col :span="5">
+          <div class="left_down_card" id="left_down">
+            <el-card :body-style="{ padding: '0px' }" shadow="hover">
+              <img
+                  src="../../assets/avatar.png"
+                  class="image"
+                  alt="头像"/>
+              <div style="padding: 14px">
+                <!--          顶部-->
+                <div class="top">
+                  <h3 style="font-weight: bold;color: cornflowerblue">武汉说唱之神</h3>
+                  <div>滚出我的脑袋滚出我的脑袋</div>
                 </div>
-              </el-collapse-item>
-              <el-collapse-item title="感兴趣的领域🎈" name="2">
-                <div>
-                  计算机、数码
+
+                <!--          底部-->
+                <div class="bottom" style="margin-top: 8px">
+                  <el-collapse>
+                    <el-collapse-item title="喜欢的事情💕" name="1">
+                      <div>
+                        🦒🦒🦒
+                      </div>
+                    </el-collapse-item>
+                    <el-collapse-item title="感兴趣的领域🎈" name="2">
+                      <div>
+                        <a-tag color="#f50">HyperPop</a-tag>
+                        <a-tag color="#2db7f5">打∠</a-tag>
+                      </div>
+                    </el-collapse-item>
+                  </el-collapse>
                 </div>
-              </el-collapse-item>
-            </el-collapse>
+              </div>
+            </el-card>
           </div>
-        </div>
-      </el-card>
+        </el-col>
+        <!--      中间的文章 每页五个-->
+        <el-col :span="25">
+
+          <div class="middle">
+            <a-card hoverable style="width: 850px">
+              <template #cover>
+                <img
+                    alt="example"
+                    src="https://t.mwm.moe/pc/"
+                />
+              </template>
+              <template #actions>
+                <div style="display: flex;margin-left: 8px">
+                  <a-tag color="#f50">#f426</a-tag>
+                  <a-tag color="#2db7f5">外设体育生</a-tag>
+                  <a-tag color="#87d068">米线</a-tag>
+                  <a-tag color="#108ee9">what Can I Say</a-tag>
+                </div>
+              </template>
+              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
+                <template #avatar>
+                  <a-avatar>李涛</a-avatar>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </div>
+          <div class="middle">
+            <a-card hoverable style="width: 850px">
+              <template #cover>
+                <img
+                    alt="example"
+                    src="https://t.mwm.moe/pc/"
+                />
+              </template>
+              <template #actions>
+                <div style="display: flex;margin-left: 8px">
+                  <a-tag color="#f50">#f426</a-tag>
+                  <a-tag color="#2db7f5">外设体育生</a-tag>
+                  <a-tag color="#87d068">米线</a-tag>
+                  <a-tag color="#108ee9">what Can I Say</a-tag>
+                </div>
+              </template>
+              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
+                <template #avatar>
+                  <a-avatar>李涛</a-avatar>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </div>
+          <div class="middle">
+            <a-card hoverable style="width: 850px">
+              <template #cover>
+                <img
+                    alt="example"
+                    src="https://t.mwm.moe/pc/"
+                />
+              </template>
+              <template #actions>
+                <div style="display: flex;margin-left: 8px">
+                  <a-tag color="#f50">#f426</a-tag>
+                  <a-tag color="#2db7f5">外设体育生</a-tag>
+                  <a-tag color="#87d068">米线</a-tag>
+                  <a-tag color="#108ee9">what Can I Say</a-tag>
+                </div>
+              </template>
+              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
+                <template #avatar>
+                  <a-avatar>李涛</a-avatar>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </div>
+          <div class="middle">
+            <a-card hoverable style="width: 850px">
+              <template #cover>
+                <img
+                    alt="example"
+                    src="https://t.mwm.moe/pc/"
+                />
+              </template>
+              <template #actions>
+                <div style="display: flex;margin-left: 8px">
+                  <a-tag color="#f50">#f426</a-tag>
+                  <a-tag color="#2db7f5">外设体育生</a-tag>
+                  <a-tag color="#87d068">米线</a-tag>
+                  <a-tag color="#108ee9">what Can I Say</a-tag>
+                </div>
+              </template>
+              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
+                <template #avatar>
+                  <a-avatar>李涛</a-avatar>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </div>
+          <div class="middle">
+            <a-card hoverable style="width: 850px">
+              <template #cover>
+                <img
+                    alt="example"
+                    src="https://t.mwm.moe/pc/"
+                />
+              </template>
+              <template #actions>
+                <div style="display: flex;margin-left: 8px">
+                  <a-tag color="#f50">#f426</a-tag>
+                  <a-tag color="#2db7f5">外设体育生</a-tag>
+                  <a-tag color="#87d068">米线</a-tag>
+                  <a-tag color="#108ee9">what Can I Say</a-tag>
+                </div>
+              </template>
+              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
+                <template #avatar>
+                  <a-avatar>李涛</a-avatar>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </div>
+          <!--      分页-->
+          <div style="margin-top: 40px;margin-left: 250px">
+            <el-pagination background layout="prev, pager, next" :total="1000"/>
+          </div>
+        </el-col>
+        <!--        右边的两个card-->
+        <el-col :span="5" style="margin-left: 30px;margin-top: 20px">
+          <div>
+            <a-card title="随机帖子✨✨" style="width: 300px">
+              <h3>我测你们码</h3>
+              <h3>我测你们码</h3>
+              <h3>我测你们码</h3>
+              <h3>我测你们码</h3>
+            </a-card>
+          </div>
+          <!--          标签页-->
+          <div>
+            <a-card title="帖子标签✨✨" style="width: 300px;margin-top: 50px">
+
+            </a-card>
+          </div>
+        </el-col>
+      </el-row>
+
     </div>
+
   </div>
 </template>
 
@@ -78,8 +231,6 @@ import {reactive, onMounted} from "vue";
 
 //easy-js
 import EasyTyper from "easy-typer-js";
-
-
 
 
 // 计算属性
@@ -98,7 +249,7 @@ const obj = reactive({
 const scrollToElem = (elementId: string) => {
   const targetEle = document.getElementById(elementId)
 
-  if(targetEle){
+  if (targetEle) {
     targetEle.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
@@ -107,7 +258,7 @@ const scrollToElem = (elementId: string) => {
   }
 }
 
-const handleClick =() =>{
+const handleClick = () => {
   scrollToElem('left_down')
 }
 
@@ -165,12 +316,16 @@ onMounted(() => {
   width: 250px;
   margin-top: 20px;
   margin-left: 20px;
+}
 
+.middle {
+  margin-top: 20px;
 }
 
 .top {
   text-align: center;
 }
+
 
 .image {
   display: block;

@@ -7,7 +7,7 @@
         </el-header>
       </el-affix>
 
-      <el-main style="min-height: 1500px;padding: 0">
+      <el-main style="min-height: 1000px;padding: 0">
         <router-view/>
       </el-main>
 
@@ -24,13 +24,13 @@
 
 
 import Header from "../components/Header.vue";
-import Welcome from "./pub/Welcome.vue";
+
 </script>
 
 <style scoped>
 .footer {
   text-align: center;
-
+  line-height: 70px;
 }
 .header{
   padding: 0;
