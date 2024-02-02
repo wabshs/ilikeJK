@@ -56,14 +56,17 @@ const obj = reactive({
   sleep: 0,
   type: 'rollback',
   backSpeed: 0,
-  sentencePause: false,
-  sentencePause: true
+  sentencePause: true,
 })
 
+
+
 // 实例化
-onMounted(() => {
-  const typed = new EasyTyper(obj, 'System.out.println("Hello HBUT!")')
-})
+onMounted(() =>
+    {
+      new EasyTyper(obj, 'System.out.println("Hello HBUT!")');
+    }
+)
 </script>
 
 <style scoped>
