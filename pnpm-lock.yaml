@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@element-plus/icons-vue':
+    specifier: ^2.3.1
+    version: 2.3.1(vue@3.4.15)
+  '@vueuse/core':
+    specifier: ^9.13.0
+    version: 9.13.0(vue@3.4.15)
   ant-design-vue:
     specifier: 4.x
     version: 4.1.2(vue@3.4.15)

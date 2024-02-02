@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
 import Antd from 'ant-design-vue';
@@ -7,5 +7,11 @@ import router from './router/router.ts'
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css'
 import "./assets/font/font.css"
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-createApp(App).use(Antd).use(router).use(ElementPlus).mount('#app')
+const app = createApp(App)
+app.use(Antd).use(router).use(ElementPlus).mount('#app')
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}

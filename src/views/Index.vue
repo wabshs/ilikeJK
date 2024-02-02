@@ -8,7 +8,7 @@
       </el-affix>
 
       <el-main style="min-height: 1500px;padding: 0">
-        <Welcome/>
+        <router-view/>
       </el-main>
 
       <!--      页脚-->

@@ -5,7 +5,12 @@ import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        component:() => import("../views/Index.vue")
+        name: 'Index',
+        component:() => import("../views/Index.vue"),
+        redirect: 'index',
+        children: [
+            {path: 'index',name: 'Index',component:() => import('../views/pub/Welcome.vue')}
+        ]
     }
 ]
 

@@ -38,14 +38,48 @@
         <el-button type="primary" size="large">快速开始~ 🚀</el-button>
       </div>
     </div>
+    <!--    左下文字-->
+    <div class="left_down_card">
+      <el-card :body-style="{ padding: '0px' }" shadow="hover">
+        <img
+            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+            class="image"
+            alt="头像"/>
+        <div style="padding: 14px">
+          <!--          顶部-->
+          <div class="top">
+            <h3>用户名</h3>
+            <div>用一句话介绍自己吧~</div>
+          </div>
+
+          <!--          底部-->
+          <div class="bottom" style="margin-top: 8px">
+            <el-collapse>
+              <el-collapse-item title="喜欢的事情💕" name="1">
+                <div>
+                  篮球、足球、乒乓球
+                </div>
+              </el-collapse-item>
+              <el-collapse-item title="感兴趣的领域🎈" name="2">
+                <div>
+                  计算机、数码
+                </div>
+              </el-collapse-item>
+            </el-collapse>
+          </div>
+        </div>
+      </el-card>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {reactive, onMounted} from "vue";
+import {reactive, onMounted, ref} from "vue";
 
 //easy-js
 import EasyTyper from "easy-typer-js";
+
+const size = ref(10)
 
 // 计算属性
 const obj = reactive({
@@ -60,10 +94,8 @@ const obj = reactive({
 })
 
 
-
 // 实例化
-onMounted(() =>
-    {
+onMounted(() => {
       new EasyTyper(obj, 'System.out.println("Hello HBUT!")');
     }
 )
@@ -109,5 +141,21 @@ onMounted(() =>
   color: transparent;
   opacity: 0;
   -webkit-animation: fadeIn 2s ease-in-out forwards;
+}
+
+.left_down_card {
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+
+.top {
+  text-align: center;
+}
+
+.image {
+  display: block;
+  width: 100%;
 }
 </style>
