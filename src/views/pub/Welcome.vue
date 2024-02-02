@@ -35,11 +35,11 @@
         </div>
         <br/>
         <br/>
-        <el-button type="primary" size="large">快速开始~ 🚀</el-button>
+        <el-button type="primary" size="large" @click="handleClick">快速开始~ 🚀</el-button>
       </div>
     </div>
     <!--    左下文字-->
-    <div class="left_down_card">
+    <div class="left_down_card" id="left_down">
       <el-card :body-style="{ padding: '0px' }" shadow="hover">
         <img
             src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
@@ -74,12 +74,13 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, onMounted, ref} from "vue";
+import {reactive, onMounted} from "vue";
 
 //easy-js
 import EasyTyper from "easy-typer-js";
 
-const size = ref(10)
+
+
 
 // 计算属性
 const obj = reactive({
@@ -92,6 +93,23 @@ const obj = reactive({
   backSpeed: 0,
   sentencePause: true,
 })
+
+//点击快速开始按钮的方法
+const scrollToElem = (elementId: string) => {
+  const targetEle = document.getElementById(elementId)
+
+  if(targetEle){
+    targetEle.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest'
+    })
+  }
+}
+
+const handleClick =() =>{
+  scrollToElem('left_down')
+}
 
 
 // 实例化
