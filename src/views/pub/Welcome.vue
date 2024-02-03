@@ -64,7 +64,7 @@
                   <el-collapse>
                     <el-collapse-item title="喜欢的事情💕" name="1">
                       <div>
-                        🦒🦒🦒
+                        我希望她幸福她幸福她幸福她幸福她幸福
                       </div>
                     </el-collapse-item>
                     <el-collapse-item title="感兴趣的领域🎈" name="2">
@@ -81,7 +81,6 @@
         </el-col>
         <!--      中间的文章 每页五个-->
         <el-col :span="25">
-
           <div class="middle">
             <a-card hoverable style="width: 850px">
               <template #cover>
@@ -92,15 +91,15 @@
               </template>
               <template #actions>
                 <div style="display: flex;margin-left: 8px">
-                  <a-tag color="#f50">#f426</a-tag>
-                  <a-tag color="#2db7f5">外设体育生</a-tag>
-                  <a-tag color="#87d068">米线</a-tag>
-                  <a-tag color="#108ee9">what Can I Say</a-tag>
+                  <a-tag color="#f50">F426</a-tag>
+                  <a-tag color="#2db7f5">探花</a-tag>
+                  <a-tag color="#87d068">品茶</a-tag>
+                  <a-tag color="#108ee9">修车</a-tag>
                 </div>
               </template>
-              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
+              <a-card-meta title="楼凤推荐" description="今天给xdm体验一下湖北工业大学附近好吃的饼子">
                 <template #avatar>
-                  <a-avatar>李涛</a-avatar>
+                  <a-avatar>陈涵</a-avatar>
                 </template>
               </a-card-meta>
             </a-card>
@@ -204,12 +203,35 @@
         </el-col>
         <!--        右边的两个card-->
         <el-col :span="5" style="margin-left: 30px;margin-top: 20px">
+          <!--          随机文章-->
           <div>
-            <a-card title="随机帖子✨✨" style="width: 300px">
-              <h3>我测你们码</h3>
-              <h3>我测你们码</h3>
-              <h3>我测你们码</h3>
-              <h3>我测你们码</h3>
+            <a-card title="随机帖子✨✨" style="width: 300px" hoverable>
+              <a-flex :vertical="true" gap="small">
+                <a-card style="width: 250px" type="inner">
+                  <template #cover>
+                    <img src="https://t.mwm.moe/pc/">
+                  </template>
+                  <p>内容</p>
+                </a-card>
+                <a-card style="width: 250px" type="inner">
+                  <template #cover>
+                    <img src="https://t.mwm.moe/pc/">
+                  </template>
+                  <p>Card content</p>
+                </a-card>
+                <a-card style="width: 250px" type="inner">
+                  <template #cover>
+                    <img src="https://t.mwm.moe/pc/">
+                  </template>
+                  <p>Card content</p>
+                </a-card>
+                <a-card style="width: 250px" type="inner">
+                  <template #cover>
+                    <img src="https://t.mwm.moe/pc/">
+                  </template>
+                  <p>Card content</p>
+                </a-card>
+              </a-flex>
             </a-card>
           </div>
           <!--          标签页-->
@@ -315,7 +337,7 @@ onMounted(() => {
 .left_down_card {
   width: 250px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .middle {
