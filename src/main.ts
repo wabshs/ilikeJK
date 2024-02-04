@@ -9,7 +9,9 @@ import 'element-plus/dist/index.css'
 import "./assets/font/font.css"
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
+
 const app = createApp(App)
+
 app.use(Antd).use(router).use(ElementPlus).mount('#app')
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
