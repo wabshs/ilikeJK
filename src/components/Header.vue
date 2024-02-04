@@ -1,27 +1,26 @@
 <template>
   <div>
     <el-menu
-        :default-active="activeIndex"
         class="el-menu"
         mode="horizontal"
         :ellipsis="false"
+        :router="true"
     >
-      <el-menu-item index="0">
+      <el-menu-item index="/index">
         <img src="/src/assets/vue.svg"
              style="width: 100px"
              alt="logo"
         />
       </el-menu-item>
       <div class="flex-grow"/>
-      <el-menu-item index="1">Processing Center</el-menu-item>
-      <el-menu-item index="2">Processing Center</el-menu-item>
+      <el-menu-item index="1">xxx</el-menu-item>
+      <el-menu-item index="/my">个人中心</el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
-const activeIndex = ref('1')
+
 
 </script>
 
