@@ -1,16 +1,19 @@
 <template>
   <div>
-    <!--    三部分 左中右-->
-    <MdEditor v-model="text"></MdEditor>
+
   </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
-import {MdEditor} from "md-editor-v3";
-import 'md-editor-v3/lib/style.css'
 
-const text = ref('hello Editor!')
+import {ref} from "vue";
+import {MdPreview, MdCatalog} from "md-editor-v3";
+import 'md-editor-v3/lib/preview.css'
+
+const id = 'preview-only';
+const text = ref("# 1");
+const scrollElement = document.documentElement;
+
 </script>
 
 <style scoped>
