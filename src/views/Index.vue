@@ -7,7 +7,7 @@
         </el-header>
       </el-affix>
 
-      <el-main style="min-height: 1000px;padding: 0">
+      <el-main style="padding: 0;min-height: 860px">
         <router-view/>
       </el-main>
 
