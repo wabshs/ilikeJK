@@ -70,7 +70,7 @@
                     <el-collapse-item title="感兴趣的领域🎈" name="2">
                       <div>
                         <a-tag color="#f50">HyperPop</a-tag>
-                        <a-tag color="#2db7f5">打∠</a-tag>
+                        <a-tag color="#2db7f5">呃呃</a-tag>
                       </div>
                     </el-collapse-item>
                   </el-collapse>
@@ -92,12 +92,12 @@
               <template #actions>
                 <div style="display: flex;margin-left: 8px">
                   <a-tag color="#f50">F426</a-tag>
-                  <a-tag color="#2db7f5">探花</a-tag>
-                  <a-tag color="#87d068">品茶</a-tag>
-                  <a-tag color="#108ee9">修车</a-tag>
+                  <a-tag color="#2db7f5">11</a-tag>
+                  <a-tag color="#87d068">22</a-tag>
+                  <a-tag color="#108ee9">33</a-tag>
                 </div>
               </template>
-              <a-card-meta title="楼凤推荐" description="今天给xdm体验一下湖北工业大学附近好吃的饼子">
+              <a-card-meta title="呃呃推荐" description="今天给xdm体验一下呃呃大学附近的呃呃">
                 <template #avatar>
                   <a-avatar>陈涵</a-avatar>
                 </template>
@@ -294,7 +294,7 @@ onMounted(() => {
 
 <style scoped>
 .welcome_pic {
-  height: 700px;
+  height: 880px;
   background-image: url("../../assets/background-light-f74c7dae.jpg");
   background-size: cover;
   display: flex;

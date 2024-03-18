@@ -8,6 +8,10 @@ import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css'
 import "./assets/font/font.css"
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import request from "./apis/request.ts";
+
+
+
 
 
 const app = createApp(App)
@@ -17,3 +21,5 @@ app.use(Antd).use(router).use(ElementPlus).mount('#app')
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
+
+app.config.globalProperties.$request = request
