@@ -52,8 +52,43 @@
         </el-card>
       </el-col>
       <!--      右-->
-      <el-col>
+      <el-col :span="4" class="edit_menu">
+        <el-card shadow="hover">
+          <template #header>
+            <div>
+              <span style="color: cadetblue;font-weight: bold">
+                快捷导航
+              </span>
+            </div>
+          </template>
+          <!--          导航栏-->
+          <div >
+            <el-row :gutter="10">
+              <el-col :span="6">
+                <div style="text-align: center;width: 65px;font-weight: bold">
+                  <el-button @click="router.push({path:'/edit/1231234'})" type="primary" :icon="Edit" circle/>
+                  <p>编辑资料</p>
+                </div>
+              </el-col>
 
+              <el-col :span="6">
+                <div style="text-align: center;width: 65px;font-weight: bold">
+                  <el-button type="warning" :icon="Message" circle/>
+                  <p>我的私信</p>
+                </div>
+              </el-col>
+
+              <el-col :span="6">
+                <div style="text-align: center;width: 65px;font-weight: bold">
+                  <el-button type="danger" :icon="Close" circle/>
+                  <p>退出登录</p>
+                </div>
+              </el-col>
+
+            </el-row>
+          </div>
+
+        </el-card>
       </el-col>
     </el-row>
   </div>
@@ -64,6 +99,8 @@ import {onMounted, ref} from 'vue';
 import {MdPreview} from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
 import request from "../../apis/request.ts";
+import {Close, Edit, Message} from "@element-plus/icons-vue";
+import router from "../../router/router.ts";
 
 
 let content = ref("")
@@ -79,6 +116,12 @@ const id = 'preview-only';
 </script>
 
 <style scoped>
+
+.edit_menu {
+  margin-left: 25px;
+  margin-top: 20px;
+}
+
 .image {
   width: 100%;
   display: block;
