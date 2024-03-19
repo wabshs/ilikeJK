@@ -10,7 +10,8 @@ const routes: Array<RouteRecordRaw> = [
         redirect: 'index',
         children: [
             {path: 'index', name: 'Index', component: () => import('../views/pub/Welcome.vue')},
-            {path: 'my', name: 'My', component: () => import('../views/my/My.vue')}
+            {path: 'my', name: 'My', component: () => import('../views/my/My.vue')},
+            {path: 'edit', name: 'Edit', component: () => import('../views/my/EditAboutMe.vue')}
         ]
     }
 ]
