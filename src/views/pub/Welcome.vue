@@ -82,7 +82,7 @@
         <!--      中间的文章 每页五个-->
         <el-col :span="25">
           <div class="middle">
-            <a-card hoverable style="width: 850px">
+            <a-card hoverable style="width: 850px" @click="router.push('/article/1')">
               <template #cover>
                 <img
                     alt="example"
@@ -253,6 +253,7 @@ import {reactive, onMounted} from "vue";
 
 //easy-js
 import EasyTyper from "easy-typer-js";
+import router from "../../router/router.ts";
 
 
 // 计算属性

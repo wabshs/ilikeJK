@@ -62,26 +62,34 @@
             </div>
           </template>
           <!--          导航栏-->
-          <div >
+          <div>
             <el-row :gutter="10">
+
               <el-col :span="6">
                 <div style="text-align: center;width: 65px;font-weight: bold">
-                  <el-button @click="router.push({path:'/edit/1231234'})" type="primary" :icon="Edit" circle/>
-                  <p>编辑资料</p>
+                  <el-button @click="router.push({path:'/createArticle/1231234'})"  type="success" :icon="EditPen" circle/>
+                  <p class="dao_hang">发布帖子</p>
                 </div>
               </el-col>
 
               <el-col :span="6">
                 <div style="text-align: center;width: 65px;font-weight: bold">
                   <el-button type="warning" :icon="Message" circle/>
-                  <p>我的私信</p>
+                  <p class="dao_hang">我的私信</p>
+                </div>
+              </el-col>
+
+              <el-col :span="6">
+                <div style="text-align: center;width: 65px;font-weight: bold">
+                  <el-button @click="router.push({path:'/edit/1231234'})" type="primary" :icon="Tools" circle/>
+                  <p class="dao_hang">我的资料</p>
                 </div>
               </el-col>
 
               <el-col :span="6">
                 <div style="text-align: center;width: 65px;font-weight: bold">
                   <el-button type="danger" :icon="Close" circle/>
-                  <p>退出登录</p>
+                  <p class="dao_hang">退出登录</p>
                 </div>
               </el-col>
 
@@ -99,7 +107,7 @@ import {onMounted, ref} from 'vue';
 import {MdPreview} from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
 import request from "../../apis/request.ts";
-import {Close, Edit, Message} from "@element-plus/icons-vue";
+import {Close, Edit, EditPen, Message, Tools} from "@element-plus/icons-vue";
 import router from "../../router/router.ts";
 
 
@@ -116,6 +124,10 @@ const id = 'preview-only';
 </script>
 
 <style scoped>
+
+.dao_hang {
+  color: rgb(128, 128, 128);
+}
 
 .edit_menu {
   margin-left: 25px;
