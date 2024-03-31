@@ -1,23 +1,43 @@
 <script setup lang="ts">
+import {reactive, ref} from "vue";
+import request from "../../apis/request.ts";
+import router from "../../router/router.ts";
+import {ElMessage} from "element-plus";
 
+const loginForm = reactive({
+  userName: "",
+  password: ""
+})
+
+
+function login() {
+  request.post("/user/userLogin", loginForm)
+      .then(res => {
+        if (res.code === 200) {
+          router.push("/index")
+        } else {
+          ElMessage.error(res.msg)
+        }
+      })
+}
 </script>
 
 <template>
   <div class="body1">
     <div class="box">
-      <h2>login</h2>
+      <h2>欢迎使用</h2>
       <div class="input-box">
-        <label>账号</label>
-        <input type="text"/>
+        <label>用户名</label>
+        <input v-model="loginForm.userName" type="text"/>
       </div>
       <div class="input-box">
         <label>密码</label>
-        <input type="password"/>
+        <input v-model="loginForm.password" type="password"/>
       </div>
       <div class="btn-box">
         <a href="#">忘记密码?</a>
         <div>
-          <el-button type="primary">登录</el-button>
+          <el-button type="primary" @click="login">登录</el-button>
           <el-button type="success">注册</el-button>
         </div>
       </div>

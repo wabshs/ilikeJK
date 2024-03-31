@@ -4,6 +4,7 @@ import {MdEditor} from 'md-editor-v3';
 import 'md-editor-v3/lib/style.css';
 import {ElMessage, UploadInstance, UploadProps} from "element-plus";
 import request from "../../apis/request.ts";
+import axios from "axios";
 
 
 const form = reactive({
@@ -47,6 +48,32 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
         }
       })
 }
+
+// 图片上传事件
+const onUploadImg = async (files, callback) => {
+  const res = await Promise.all(
+      files.map((file) => {
+        return new Promise((rev, rej) => {
+          // 传给后端一个FormData数据，添加键值对，这里添加file
+          const form = new FormData();
+          form.append('file', file);
+          axios
+              // 这里是我的后端接口，请求地址和路径可以自己改
+              .post('http://localhost:8081/api/file/uploadPic', form, {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              })
+              .then((res) => {
+                console.log(res)
+                rev(res)
+              })
+              .catch((error) => rej(error));
+        });
+      })
+  );
+  callback(res.map((item) => item.data.data));
+};
 
 function deleteContent() {
   form.content = ""
@@ -92,7 +119,7 @@ function createArticle() {
     <el-divider/>
 
     <!--    正文编辑器-->
-    <MdEditor v-model="form.content"/>
+    <MdEditor v-model="form.content" @onUploadImg="onUploadImg"/>
     <!--    操作按钮-->
     <div class="actions">
       <el-button v-loading.fullscreen.lock="loading" type="success" plain @click="createArticle">发布</el-button>
