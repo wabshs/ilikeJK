@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {reactive, ref} from "vue";
+import {reactive} from "vue";
 import request from "../../apis/request.ts";
 import router from "../../router/router.ts";
 import {ElMessage} from "element-plus";

@@ -7,7 +7,7 @@
         <div class="ziliaoka">
           <el-card :body-style="{ padding: '0px'}" shadow="hover">
             <img
-                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                src="https://bysj-oss-1.oss-cn-shenzhen.aliyuncs.com/picture/2024-03-28da85c0be6ca2424db4a453e881ef0277冰冷心事.jpg"
                 class="image"
                 alt="avatar"
                 style="background-size: cover"
@@ -107,7 +107,7 @@ import {onMounted, ref} from 'vue';
 import {MdPreview} from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
 import request from "../../apis/request.ts";
-import {Close, Edit, EditPen, Message, Tools} from "@element-plus/icons-vue";
+import {Close, EditPen, Message, Tools} from "@element-plus/icons-vue";
 import router from "../../router/router.ts";
 
 
