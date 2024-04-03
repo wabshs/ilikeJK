@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import {reactive, ref} from "vue";
+import request from "../../apis/request.ts";
+import {ElMessage} from "element-plus";
+import router from "../../router/router.ts";
 
 
 const form = reactive({
@@ -14,6 +17,15 @@ const countdown = ref(0)
 
 
 function startCountdown() {
+  //发送验证码
+  request.post("/mail/sendAuthCode?to=" + form.email)
+      .then(res => {
+        if (res.code === 200) {
+          ElMessage.success("发送成功")
+        } else {
+          ElMessage.error(res.msg)
+        }
+      })
   countdown.value = 60; // 设置倒计时初始值为60秒
   const timer = setInterval(() => {
     if (countdown.value > 0) {
@@ -22,6 +34,19 @@ function startCountdown() {
       clearInterval(timer); // 倒计时结束，清除定时器
     }
   }, 1000);
+}
+
+//注册
+function userRegister() {
+  request.post("/user/userRegister", form)
+      .then(res => {
+        if (res.code === 200) {
+          ElMessage.success("注册成功!")
+          router.push("/login")
+        } else {
+          ElMessage.error(res.msg)
+        }
+      })
 }
 </script>
 
@@ -49,7 +74,7 @@ function startCountdown() {
             {{ countdown > 0 ? countdown + 's 后重新获取' : '获取验证码' }}
           </el-button>
         </el-form-item>
-        <el-button style="margin-left: 300px" type="success">注册</el-button>
+        <el-button style="margin-left: 300px" type="success" @click="userRegister">注册</el-button>
       </el-form>
     </div>
   </div>
@@ -61,12 +86,12 @@ function startCountdown() {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url("/src/assets/背景1.png");
+  background: url("/src/assets/background-f671693c.jpg");
   background-size: cover;
 }
 
 .box {
-  padding: 20px;
+  padding: 30px;
   border-radius: 20px;
   width: 430px;
   height: 360px;
