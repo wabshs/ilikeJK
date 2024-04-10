@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {reactive} from "vue";
+import {nextTick, reactive} from "vue";
 import request from "../../apis/request.ts";
 import router from "../../router/router.ts";
 import {ElMessage} from "element-plus";
@@ -14,7 +14,11 @@ function login() {
   request.post("/user/userLogin", loginForm)
       .then(res => {
         if (res.code === 200) {
+          //登录成功把用户id存起来
+          localStorage.setItem("userId", res.data)
           router.push("/index")
+              .then(()=>location.reload())
+          ElMessage.success("登录成功!")
         } else {
           ElMessage.error(res.msg)
         }

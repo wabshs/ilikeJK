@@ -49,14 +49,14 @@
           <div class="left_down_card" id="left_down">
             <el-card :body-style="{ padding: '0px' }" shadow="hover">
               <img
-                  src="../../assets/avatar.png"
+                  :src=avatarUrl
                   class="image"
                   alt="头像"/>
               <div style="padding: 14px">
                 <!--          顶部-->
                 <div class="top">
-                  <h3 style="font-weight: bold;color: cornflowerblue">武汉说唱之神</h3>
-                  <div>滚出我的脑袋滚出我的脑袋</div>
+                  <h3 style="font-weight: bold;color: cornflowerblue">{{ nickName }}</h3>
+                  <div>{{ sign }}</div>
                 </div>
 
                 <!--          底部-->
@@ -81,117 +81,22 @@
         </el-col>
         <!--      中间的文章 每页五个-->
         <el-col :span="25">
-          <div class="middle">
-            <a-card hoverable style="width: 850px" @click="router.push('/article/1')">
+          <div class="middle" v-for="(article, index) in articles" :key="index">
+            <a-card  hoverable style="width: 850px" @click="router.push('/article/'+article.id)">
               <template #cover>
                 <img
                     alt="example"
-                    src="https://t.mwm.moe/pc/"
+                    :src=article.coverUrl
                 />
               </template>
               <template #actions>
                 <div style="display: flex;margin-left: 8px">
                   <a-tag color="#f50">F426</a-tag>
-                  <a-tag color="#2db7f5">11</a-tag>
-                  <a-tag color="#87d068">22</a-tag>
-                  <a-tag color="#108ee9">33</a-tag>
                 </div>
               </template>
-              <a-card-meta title="呃呃推荐" description="今天给xdm体验一下呃呃大学附近的呃呃">
+              <a-card-meta :title=article.header :description=article.description>
                 <template #avatar>
-                  <a-avatar>陈涵</a-avatar>
-                </template>
-              </a-card-meta>
-            </a-card>
-          </div>
-          <div class="middle">
-            <a-card hoverable style="width: 850px">
-              <template #cover>
-                <img
-                    alt="example"
-                    src="https://t.mwm.moe/pc/"
-                />
-              </template>
-              <template #actions>
-                <div style="display: flex;margin-left: 8px">
-                  <a-tag color="#f50">#f426</a-tag>
-                  <a-tag color="#2db7f5">外设体育生</a-tag>
-                  <a-tag color="#87d068">米线</a-tag>
-                  <a-tag color="#108ee9">what Can I Say</a-tag>
-                </div>
-              </template>
-              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
-                <template #avatar>
-                  <a-avatar>李涛</a-avatar>
-                </template>
-              </a-card-meta>
-            </a-card>
-          </div>
-          <div class="middle">
-            <a-card hoverable style="width: 850px">
-              <template #cover>
-                <img
-                    alt="example"
-                    src="https://t.mwm.moe/pc/"
-                />
-              </template>
-              <template #actions>
-                <div style="display: flex;margin-left: 8px">
-                  <a-tag color="#f50">#f426</a-tag>
-                  <a-tag color="#2db7f5">外设体育生</a-tag>
-                  <a-tag color="#87d068">米线</a-tag>
-                  <a-tag color="#108ee9">what Can I Say</a-tag>
-                </div>
-              </template>
-              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
-                <template #avatar>
-                  <a-avatar>李涛</a-avatar>
-                </template>
-              </a-card-meta>
-            </a-card>
-          </div>
-          <div class="middle">
-            <a-card hoverable style="width: 850px">
-              <template #cover>
-                <img
-                    alt="example"
-                    src="https://t.mwm.moe/pc/"
-                />
-              </template>
-              <template #actions>
-                <div style="display: flex;margin-left: 8px">
-                  <a-tag color="#f50">#f426</a-tag>
-                  <a-tag color="#2db7f5">外设体育生</a-tag>
-                  <a-tag color="#87d068">米线</a-tag>
-                  <a-tag color="#108ee9">what Can I Say</a-tag>
-                </div>
-              </template>
-              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
-                <template #avatar>
-                  <a-avatar>李涛</a-avatar>
-                </template>
-              </a-card-meta>
-            </a-card>
-          </div>
-          <div class="middle">
-            <a-card hoverable style="width: 850px">
-              <template #cover>
-                <img
-                    alt="example"
-                    src="https://t.mwm.moe/pc/"
-                />
-              </template>
-              <template #actions>
-                <div style="display: flex;margin-left: 8px">
-                  <a-tag color="#f50">#f426</a-tag>
-                  <a-tag color="#2db7f5">外设体育生</a-tag>
-                  <a-tag color="#87d068">米线</a-tag>
-                  <a-tag color="#108ee9">what Can I Say</a-tag>
-                </div>
-              </template>
-              <a-card-meta title="出鼠标" description="刚买的GPW1不想要了200出99新">
-                <template #avatar>
-                  <a-avatar>李涛</a-avatar>
+                  <a-avatar :src="article.avatarUrl"/>
                 </template>
               </a-card-meta>
             </a-card>
@@ -249,12 +154,30 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, onMounted} from "vue";
+import {reactive, onMounted, ref} from "vue";
 
 //easy-js
 import EasyTyper from "easy-typer-js";
 import router from "../../router/router.ts";
+import request from "../../apis/request.ts";
 
+//分页参数
+const pageNum = ref(1)
+const pageSize = ref(5)
+const pageParam = reactive({
+  pageNum: pageNum,
+  pageSize: pageSize
+})
+
+const articles = ref([
+  {
+    id: '',
+    header: '无网络',
+    avatarUrl: '无网络',
+    description: '无网络',
+    coverUrl: ''
+  },
+])
 
 // 计算属性
 const obj = reactive({
@@ -285,11 +208,37 @@ const handleClick = () => {
   scrollToElem('left_down')
 }
 
+const userId = ref(localStorage.getItem('userId'));
+//头像
+const avatarUrl = ref('')
+//nickName
+const nickName = ref('')
+//签名
+const sign = ref('')
+
 
 // 实例化
 onMounted(() => {
       new EasyTyper(obj, 'System.out.println("Hello HBUT!")');
-    }
+      request.get("/user/userProfile/" + userId.value)
+          .then(res => {
+            avatarUrl.value = res.data.avatarUrl
+            nickName.value = res.data.nickName
+            sign.value = res.data.sign
+          })
+
+      //获取文章列表
+      request.get("/article/selectArticlePage", {
+        params: pageParam
+      }).then(res => {
+        if (res.code === 200) {
+          articles.value = res.data
+          console.log('success')
+        } else {
+          console.log(error)
+        }
+      })
+    },
 )
 </script>
 

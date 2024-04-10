@@ -67,7 +67,8 @@
 
               <el-col :span="6">
                 <div style="text-align: center;width: 65px;font-weight: bold">
-                  <el-button @click="router.push({path:'/createArticle/1231234'})"  type="success" :icon="EditPen" circle/>
+                  <el-button @click="router.push({path:'/createArticle/'+userId})" type="success" :icon="EditPen"
+                             circle/>
                   <p class="dao_hang">发布帖子</p>
                 </div>
               </el-col>
@@ -81,7 +82,7 @@
 
               <el-col :span="6">
                 <div style="text-align: center;width: 65px;font-weight: bold">
-                  <el-button @click="router.push({path:'/edit/1231234'})" type="primary" :icon="Tools" circle/>
+                  <el-button @click="router.push({path:'/edit/'+userId})" type="primary" :icon="Tools" circle/>
                   <p class="dao_hang">我的资料</p>
                 </div>
               </el-col>
@@ -111,15 +112,17 @@ import {Close, EditPen, Message, Tools} from "@element-plus/icons-vue";
 import router from "../../router/router.ts";
 
 
+
 let content = ref("")
 onMounted(() => {
-  request.get("/user/aboutMe/1231234")
+  request.get("/user/aboutMe/" + userId.value)
       .then(res => {
         content.value = res.data.aboutMe
       })
 });
 
 const id = 'preview-only';
+const userId = ref(localStorage.getItem("userId"))
 
 </script>
 

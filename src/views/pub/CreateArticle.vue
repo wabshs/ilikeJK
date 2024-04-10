@@ -11,7 +11,7 @@ const form = reactive({
   header: "",
   coverUrl: "",
   content: "正文编辑器",
-  userId: "112233"
+  userId: localStorage.getItem("userId")
 })
 const upload = ref<UploadInstance>()
 const loading = ref(false)

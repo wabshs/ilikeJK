@@ -8,18 +8,28 @@ import request from "../../apis/request.ts";
 
 const id = 'content';
 const scrollElement = document.documentElement
-const header = ref('这是一个测试标题');
+const header = ref('测试标题');
 const content = ref('# 哈哈1');
 const route = useRoute();
 const articleId = route.params.id;
 const views = ref(0);
+//用户id 获取头像用
+const userId = ref('')
+const userAvatarUrl = ref('')
 
 onMounted(() => {
   request.get("/article/" + articleId)
       .then(res => {
+        header.value = res.data.header
         content.value = res.data.content
         views.value = res.data.views
+        userId.value = res.data.userId
+        request.get("/user/userAvatar/" + userId.value)
+            .then(res => {
+              userAvatarUrl.value = res.data
+            })
       })
+
 })
 </script>
 
@@ -32,11 +42,11 @@ onMounted(() => {
           <div style="align-items: center;display: flex">
             <!--          头像-->
             <el-avatar
-                src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                :src=userAvatarUrl
             />
             <!--          名字和其他-->
             <el-divider direction="vertical"/>
-            <div>李涛</div>
+            <div>d1t</div>
           </div>
 
         </el-card>
