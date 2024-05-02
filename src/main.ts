@@ -12,11 +12,15 @@ import request from "./apis/request.ts";
 
 
 
-
-
 const app = createApp(App)
+import UndrawUi from 'undraw-ui'
+import 'undraw-ui/dist/style.css'
 
-app.use(Antd).use(router).use(ElementPlus).mount('#app')
+app.use(Antd)
+    .use(router)
+    .use(ElementPlus)
+    .use(UndrawUi)
+    .mount('#app')
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)

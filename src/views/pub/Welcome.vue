@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <u-chat :user-id="userChatId" :emoji="emoji" :data="chatData" @submit="submit"></u-chat>
     <!--    开屏大图 上方区域-->
     <div class="welcome_pic">
       <!--      里面的文字-->
@@ -82,16 +82,19 @@
         <!--      中间的文章 每页五个-->
         <el-col :span="25">
           <div class="middle" v-for="(article, index) in articles" :key="index">
-            <a-card  hoverable style="width: 850px" @click="router.push('/article/'+article.id)">
+            <a-card hoverable style="width: 850px" @click="router.push('/article/'+article.id)">
               <template #cover>
-                <img
-                    alt="example"
-                    :src=article.coverUrl
-                />
+                <div style="height: 300px;">
+                  <img
+                      style="height: 100%;width: 100%;object-fit: cover"
+                      alt="example"
+                      :src=article.coverUrl
+                  />
+                </div>
               </template>
               <template #actions>
                 <div style="display: flex;margin-left: 8px">
-                  <a-tag color="#f50">F426</a-tag>
+                  <a-tag :bordered="false" :color=item.color v-for="item in article.articleTags">{{ item.name }}</a-tag>
                 </div>
               </template>
               <a-card-meta :title=article.header :description=article.description>
@@ -142,7 +145,7 @@
           <!--          标签页-->
           <div>
             <a-card title="帖子标签✨✨" style="width: 300px;margin-top: 50px">
-
+              <a-tag :color="tag.color" v-for="tag in articleTagsForm">{{ tag.name }}</a-tag>
             </a-card>
           </div>
         </el-col>
@@ -155,12 +158,17 @@
 
 <script setup lang="ts">
 import {reactive, onMounted, ref} from "vue";
+import {ChatApi, ChatSubmitParam} from 'undraw-ui'
+
 
 //easy-js
 import EasyTyper from "easy-typer-js";
 import router from "../../router/router.ts";
 import request from "../../apis/request.ts";
+import emoji from "../../assets/emoji.ts";
 
+
+const userChatId = ref(1)
 //分页参数
 const pageNum = ref(1)
 const pageSize = ref(5)
@@ -168,14 +176,16 @@ const pageParam = reactive({
   pageNum: pageNum,
   pageSize: pageSize
 })
-
+//文章分类
+const articleTagsForm = ref([])
 const articles = ref([
   {
     id: '',
     header: '无网络',
     avatarUrl: '无网络',
     description: '无网络',
-    coverUrl: ''
+    coverUrl: '',
+    articleTags: []
   },
 ])
 
@@ -190,6 +200,30 @@ const obj = reactive({
   backSpeed: 0,
   sentencePause: true,
 })
+
+//聊天相关
+const chatData = reactive<ChatApi[]>([
+  {id: 2, username: 'HBUT', avatar: '1', content: '您好，智慧HBUT为您服务！请问出您感兴趣的话题！'},
+])
+
+const submit = ({clear, content}: ChatSubmitParam) => {
+
+  chatData.push({id: 1, username: 'user', avatar: avatarUrl.value, content: content})
+  request.post('/ai/chat?content=' + content)
+      .then(res => {
+        chatData.push({id: 2, username: 'HBUT', avatar: '', content: res.data})
+        console.log(avatarUrl.value)
+      })
+  clear()
+}
+
+//获取文章分类
+function getArticleTags() {
+  request.get('/article/getArticleTags')
+      .then(res => {
+        articleTagsForm.value = res.data
+      })
+}
 
 //点击快速开始按钮的方法
 const scrollToElem = (elementId: string) => {
@@ -233,11 +267,12 @@ onMounted(() => {
       }).then(res => {
         if (res.code === 200) {
           articles.value = res.data
-          console.log('success')
+          //console.log('success')
         } else {
           console.log(error)
         }
       })
+      getArticleTags()
     },
 )
 </script>

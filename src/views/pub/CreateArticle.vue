@@ -1,20 +1,55 @@
 <script setup lang="ts">
-import {reactive, ref} from "vue";
+import {onMounted, reactive, ref} from "vue";
 import {MdEditor} from 'md-editor-v3';
 import 'md-editor-v3/lib/style.css';
 import {ElMessage, UploadInstance, UploadProps} from "element-plus";
 import request from "../../apis/request.ts";
-import axios from "axios";
 
-
+const tagsStr = ref('')
 const form = reactive({
   header: "",
   coverUrl: "",
   content: "正文编辑器",
-  userId: localStorage.getItem("userId")
+  userId: localStorage.getItem("userId"),
+  tags: tagsStr
 })
+
+
 const upload = ref<UploadInstance>()
 const loading = ref(false)
+//添加文章标签用
+const tagsData = ref([
+  {
+    id: 1,
+    name: '交友'
+  },
+  {
+    id: 2,
+    name: '知识'
+  }
+]);
+
+// 创建一个 ref 来跟踪选中的 ID 数组 ---------------选择分类用-------------
+const selectedIds = ref([]);
+const handleChange = (id, checked) => {
+  if (checked) {
+    // 如果标签被选中，将 ID 添加到数组中
+    //
+    selectedIds.value.push(id);
+    console.log('选择了' + id)
+    console.log('现在选择的是:' + selectedIds.value + '转为str:')
+    tagsStr.value = selectedIds.value.toString()
+    console.log(tagsStr.value)
+    console.log('form.tags是:' + form.tags)
+  } else {
+    const index = selectedIds.value.indexOf(id);
+    selectedIds.value.splice(index, 1);
+    console.log('移除了' + id)
+    console.log('现在选择的是:' + selectedIds.value)
+    tagsStr.value = selectedIds.value.toString()
+    console.log(tagsStr.value)
+  }
+};
 
 //上传前的钩子函数 检测文件格式以及大小
 const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
@@ -33,6 +68,7 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
 ) => {
   //赋值给url
   loading.value = true
+
   form.coverUrl = response.data
   //console.log(form.coverUrl)
   request.post("/article/createArticle", form)
@@ -44,8 +80,21 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
           })
           loading.value = false
         } else {
-          ElMessage.error('出错了，请联系管理员')
+          ElMessage.error(res.msg)
         }
+      })
+}
+
+onMounted(() => {
+  getArticleTags()
+})
+
+//获取文章分类
+function getArticleTags() {
+  request.get('/article/getArticleTags')
+      .then(res => {
+        tagsData.value = res.data
+        console.log(tagsData.values)
       })
 }
 
@@ -57,13 +106,7 @@ const onUploadImg = async (files, callback) => {
           // 传给后端一个FormData数据，添加键值对，这里添加file
           const form = new FormData();
           form.append('file', file);
-          axios
-              // 这里是我的后端接口，请求地址和路径可以自己改
-              .post('http://localhost:8081/api/file/uploadPic', form, {
-                headers: {
-                  'Content-Type': 'multipart/form-data'
-                }
-              })
+          request.post('/file/uploadPic', form)
               .then((res) => {
                 console.log(res)
                 rev(res)
@@ -72,7 +115,7 @@ const onUploadImg = async (files, callback) => {
         });
       })
   );
-  callback(res.map((item) => item.data.data));
+  callback(res.map((item) => item.data));
 };
 
 function deleteContent() {
@@ -80,8 +123,14 @@ function deleteContent() {
 }
 
 function createArticle() {
-  //首先把图传到服务器
-  upload.value!.submit();
+
+  if (selectedIds.value.length === 0) {
+    ElMessage.error("请选择文章标签!")
+  } else {
+    //首先把图传到服务器
+    upload.value!.submit();
+  }
+
 
 }
 
@@ -110,8 +159,16 @@ function createArticle() {
               <el-button type="primary">上传封面</el-button>
             </template>
           </el-upload>
-
-
+        </el-form-item>
+        <el-form-item label="文章分类（必选）">
+          <a-checkable-tag
+              v-for="data in tagsData"
+              :key=data.id
+              :checked="selectedIds.includes(data.id)"
+              @change="checked => handleChange(data.id, checked)"
+          >
+            {{ data.name }}
+          </a-checkable-tag>
         </el-form-item>
       </el-form>
     </div>

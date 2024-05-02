@@ -17,6 +17,7 @@
     "element-plus": "^2.5.3",
     "highlight.js": "^11.9.0",
     "md-editor-v3": "^4.11.2",
+    "undraw-ui": "1.0.7",
     "vue": "^3.3.11",
     "vue-router": "4.*"
   },

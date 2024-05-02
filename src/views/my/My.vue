@@ -7,7 +7,7 @@
         <div class="ziliaoka">
           <el-card :body-style="{ padding: '0px'}" shadow="hover">
             <img
-                src="https://bysj-oss-1.oss-cn-shenzhen.aliyuncs.com/picture/2024-03-28da85c0be6ca2424db4a453e881ef0277冰冷心事.jpg"
+                src=""
                 class="image"
                 alt="avatar"
                 style="background-size: cover"
@@ -62,9 +62,8 @@
             </div>
           </template>
           <!--          导航栏-->
-          <div>
+          <div style="font-family: 得意黑,serif">
             <el-row :gutter="10">
-
               <el-col :span="6">
                 <div style="text-align: center;width: 65px;font-weight: bold">
                   <el-button @click="router.push({path:'/createArticle/'+userId})" type="success" :icon="EditPen"
@@ -75,7 +74,7 @@
 
               <el-col :span="6">
                 <div style="text-align: center;width: 65px;font-weight: bold">
-                  <el-button type="warning" :icon="Message" circle/>
+                  <el-button type="warning" @click="router.push({path:'/chat/'})" :icon="Message" circle/>
                   <p class="dao_hang">我的私信</p>
                 </div>
               </el-col>
@@ -110,19 +109,25 @@ import 'md-editor-v3/lib/preview.css';
 import request from "../../apis/request.ts";
 import {Close, EditPen, Message, Tools} from "@element-plus/icons-vue";
 import router from "../../router/router.ts";
+import {useRoute} from "vue-router";
+import {ElMessage} from "element-plus";
 
-
+const id = 'preview-only';
+const route = useRoute()
+const userId = route.params.id
 
 let content = ref("")
 onMounted(() => {
-  request.get("/user/aboutMe/" + userId.value)
+  request.get("/user/aboutMe/" + userId)
       .then(res => {
-        content.value = res.data.aboutMe
+        if (res.code === 200) {
+          content.value = res.data.aboutMe
+        } else {
+          ElMessage.error(res.msg)
+        }
       })
 });
 
-const id = 'preview-only';
-const userId = ref(localStorage.getItem("userId"))
 
 </script>
 
